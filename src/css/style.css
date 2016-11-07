@@ -1,0 +1,83 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.page{
+  padding: 20px;
+}
+.btn {
+    border-radius: 2px;
+    padding: 10px 20px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+.channelIcon{
+  border: 1px solid #ccc;
+  margin: 0 10px 10px 0;
+  width: 150px;
+  cursor:pointer;
+}
+.channel-selected{
+      box-shadow: 2px 2px 1px 0px #666;
+}
+.page-unit>*{
+  margin-bottom: 10px;
+}
+.btn-primary{
+  background-color: #117ed2;
+  color:white;
+}
+.font-size-primary{
+  font-size: 1rem;
+}
+.font-size-smaller{
+  font-size:0.8rem;
+}
+.font-size-bigger{
+  font-size: 1.2rem;
+}
+.font-bold{
+  font-weight: bold;
+}
+.mr-primary{
+  margin-right: 10px;
+}
+td{
+  height: 32px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+}
+.color-red{
+  color: red;
+}
+.fee-input {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 30px;
+    box-shadow: 1px 1px 3px 0 #666;
+    display: none;
+}
+.show{
+  display: block !important;
+}
+.pointer{
+  cursor: pointer;
+}
+ul.page-control>li {
+    float: left;
+    margin-right: 10px;
+}
+ul.page-control {
+    list-style: none;
+    float: right;
+}
+.page-control li{
+  cursor: pointer;
+}
