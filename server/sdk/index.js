@@ -1,6 +1,11 @@
 const config = require('./lib/config');
 const util = require('./lib/util');
 
+/**
+ * 接口详细参数参照官方文档
+ * 
+ * @class BCRESTApi
+ */
 
 class BCRESTApi {
     //支付
@@ -568,32 +573,120 @@ class BCRESTApi {
     //线下渠道查询状态
     getOfflineStatus(param){
         return new Promise((resolve, reject) => {
-            const map = {
-                "WX_SCAN":1,
-				"ALI_SCAN":1,
-				"WX_NATIVE":1,
-				"ALI_OFFLINE_QRCODE":1
+            const neededData = {
+                common: {
+                    app_id: 'string',
+                    timestamp: 'number',
+                    app_sign: 'string',
+                    bill_no:'string'
+                }
             }
-            if (!map[param.channel]) {
-                resolve(
-                    {
-                        resultCode: 10086,
-                        errMsg: '不支持此渠道'
-                    }
-                )
-                return;
-            }
+            util.postman({
+                path: config.URI_OFFLINE_BILL_STATUS,
+                type: 'post',
+                data: param,
+                neededData: neededData,
+                target:this//BCRESTApi对象
+            }).then(value => {
+                resolve(value);
+            })
+        })
+    }
+
+
+
+    offlineBill(param){
+        return new Promise((resolve, reject) => {
             const neededData = {
                 common: {
                     app_id: 'string',
                     timestamp: 'number',
                     app_sign: 'string',
                     channel:'string',
-                    bill_no:'string'
+                    total_fee:'number',
+                    bill_no:'string',
+                    title:'string',
+                },
+                channel:{
+                    WX_SCAN:{
+                        auth_code:'string'
+                    },
+                    ALI_SCAN :{
+                        auth_code:'string'
+                    }
                 }
             }
             util.postman({
-                path: config.URI_OFFLINE_BILL_STATUS,
+                path: config.URI_OFFLINE_BILL,
+                type: 'post',
+                data: param,
+                neededData: neededData,
+                target:this//BCRESTApi对象
+            }).then(value => {
+                resolve(value);
+            })
+        })
+    }
+
+    /**
+     * @desc: 线下渠道撤销订单
+     *
+     * @param 
+     * channel:根据不同场景选择不同的支付方式	
+     * method:(必填)REVERT代表取消订单	
+     * 
+     * @return json
+     */
+    offlineRevert(param){
+        return new Promise((resolve, reject) => {
+            const neededData = {
+                common: {
+                    app_id: 'string',
+                    timestamp: 'number',
+                    app_sign: 'string',
+                    method:'string',
+                },
+            }
+            util.postman({
+                path: config.URI_OFFLINE_BILL+'/'+param.bill_no,
+                type: 'post',
+                data: param,
+                neededData: neededData,
+                target:this//BCRESTApi对象
+            }).then(value => {
+                resolve(value);
+            })
+        })
+    }
+
+    /**
+     * @desc: 线下渠道退款
+     *
+     * @param 
+     * refund_no:(必填)格式为:退款日期(8位) + 流水号(3~24 位)。请自行确保在商户系统中唯一，且退款日期必须是发起退款的当天日期,同一退款单号不可重复提交，否则会造成退款单重复。流水号可以接受数字或英文字符，建议使用数字，但不可接受“000”	
+     * bill_no:(必填)发起支付时填写的订单号	
+     * refund_fee:(必填)必须为正整数，单位为分，必须小于或等于对应的已支付订单的total_fee	
+     * refund_reason:'退款说明'
+     * optional:用户自定义的参数，将会在webhook通知中原样返回，该字段主要用于商户携带订单的自定义数据	{"key1":"value1","key2":"value2",...}	
+     * operator_id:商户的操作员编号	
+     * store_id:商户的门店编号	
+     * 
+     * @return json
+     */
+    offlineRefund(param){
+        return new Promise((resolve, reject) => {
+            const neededData = {
+                common: {
+                    app_id: 'string',
+                    timestamp: 'number',
+                    app_sign: 'string',
+                    refund_no:'string',
+                    bill_no:'string',
+                    refund_fee:'number'
+                },
+            }
+            util.postman({
+                path:config.URI_OFFLINE_REFUND,
                 type: 'post',
                 data: param,
                 neededData: neededData,

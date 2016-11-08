@@ -5,6 +5,7 @@ node_modules
 
 # testing
 coverage
+server/sdkTest.js
 
 # production
 build
@@ -16,3 +17,4 @@ npm-debug.log
 
 #vscode
 .vscode
+
