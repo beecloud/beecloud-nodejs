@@ -14,5 +14,6 @@ export const interfaceUrls = {
     sms:BACK_END_HOST+'api/sms',
     sign:BACK_END_HOST+'api/sign',
     bcTransfer:BACK_END_HOST+'api/bcTransfer',
-    transfer:BACK_END_HOST+'api/transfer'
+    transfer:BACK_END_HOST+'api/transfer',
+    offlineStatus:BACK_END_HOST+'api/offlineStatus'
 }

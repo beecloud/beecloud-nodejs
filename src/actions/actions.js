@@ -85,3 +85,17 @@ export function subscription(){
 export function queryById(id,type){
     window.open(`/queryById/${id}/${type}`)
 }
+
+export function changeOfflineType(channel){
+    return {
+        type:types.CHANGE_OFFLINE_STATUS,
+        data:channel
+    }
+}
+
+export function getOfflineStatus(billNo){
+    return (dispatch,getState) => {
+        const channel = getState().offlineStatus.get('currentChannel');
+        window.open(`/offlineStatus/${channel}/${billNo}`);
+    }
+}

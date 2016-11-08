@@ -97,6 +97,23 @@ class MainPage extends PureComponent {
                     <Button action={()=>{this.props.action.queryById(this.refs.billId.value,'refund')}} text={this.props.queryByIdBtnText.refund}/>
                     <hr/>
                 </div>
+                <div className="page-unit">
+                    <div className="font-size-bigger">
+                        根据bill_no查询线下订单状态
+                    </div>
+                    <div className="font-size-primary">
+                        请输入bill_no:
+                    </div>
+                    <div>
+                        <input ref="billNo"/>
+                    </div>
+                    <div className="font-size-primary">
+                        请选择渠道:
+                    </div>
+                    <ChannelList action={this.props.action.changeOfflineType} currentChannel={this.props.offlineCurrentChannel} channels={this.props.offlineChannels} />
+                    <Button action={()=>(this.props.action.getOfflineStatus(this.refs.billNo.value))} text={this.props.offlineBtnText}/>
+                    <hr/>
+                </div>
             </div>
         )
     }
@@ -127,7 +144,11 @@ function mapStateToProps(state) {
         subscriptionChannels:state.subscription.get('channels'),
         subscriptionBtnText:state.subscription.get('btnText'),
         subscriptionCurrentChannel:state.subscription.get('currentChannel'),
-        queryByIdBtnText:state.queryById.get('btnText').toJS()
+        queryByIdBtnText:state.queryById.get('btnText').toJS(),
+        offlineChannels:state.offlineStatus.get('channels'),
+        offlineBtnText:state.offlineStatus.get('btnText'),
+        offlineCurrentChannel:state.offlineStatus.get('currentChannel')
+
         
     }
 }

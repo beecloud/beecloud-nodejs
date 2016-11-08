@@ -6,9 +6,10 @@ import checkoff from './checkoff';
 import transfer from './transfer';
 import subscription from './subscription';
 import queryById from './queryById';
+import offlineStatus from './offlineStatus';
 
 const rootReducer = combineReducers({
-    bill,bills,permission,checkoff,transfer,subscription,queryById
+    bill,bills,permission,checkoff,transfer,subscription,queryById,offlineStatus
 })
 
 export default rootReducer

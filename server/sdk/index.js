@@ -563,6 +563,46 @@ class BCRESTApi {
     setSandbox(ifTest) {
         this.test = ifTest;
     }
+
+
+    //线下渠道查询状态
+    getOfflineStatus(param){
+        return new Promise((resolve, reject) => {
+            const map = {
+                "WX_SCAN":1,
+				"ALI_SCAN":1,
+				"WX_NATIVE":1,
+				"ALI_OFFLINE_QRCODE":1
+            }
+            if (!map[param.channel]) {
+                resolve(
+                    {
+                        resultCode: 10086,
+                        errMsg: '不支持此渠道'
+                    }
+                )
+                return;
+            }
+            const neededData = {
+                common: {
+                    app_id: 'string',
+                    timestamp: 'number',
+                    app_sign: 'string',
+                    channel:'string',
+                    bill_no:'string'
+                }
+            }
+            util.postman({
+                path: config.URI_OFFLINE_BILL_STATUS,
+                type: 'post',
+                data: param,
+                neededData: neededData,
+                target:this//BCRESTApi对象
+            }).then(value => {
+                resolve(value);
+            })
+        })
+    }
 }
 
 module.exports = BCRESTApi;

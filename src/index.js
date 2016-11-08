@@ -11,6 +11,7 @@ import Subscription from './containers/Subscription';
 import Auth from './containers/Auth';
 import Checkoff from './containers/Checkoff';
 import Transfer from './containers/Transfer';
+import OfflineStatus from './containers/OfflineStatus';
 import './css/style.css';
 
 
@@ -32,6 +33,7 @@ render(
         <Route path="/auth" component={Auth}/>
         <Route path="/Checkoff" component={Checkoff}/>
         <Route path="/Transfer/:channel" component={Transfer}/>
+        <Route path="/OfflineStatus/:channel/:billNo" component={OfflineStatus}/>
       </Route>
     </Router>
   </Provider>,

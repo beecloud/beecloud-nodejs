@@ -119,3 +119,9 @@ app.post('/api/transfer', (req, res, next) => { //退款总数
     res.send(response);
   })
 })
+
+app.post('/api/offlineStatus', (req, res, next) => { //线下订单状态
+  API.getOfflineStatus(req.body).then((response) => {
+    res.send(response);
+  })
+})
