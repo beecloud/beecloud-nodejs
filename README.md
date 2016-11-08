@@ -3,13 +3,13 @@
 
 ## 简介
 
-本项目的官方GitHub地址是 [https://github.com/bc-xuqi/beecloud-nodejs.git](https://github.com/bc-xuqi/beecloud-nodejs.git)
+本项目的官方GitHub地址是 [https://github.com/beecloud/beecloud-nodejs](https://github.com/beecloud/beecloud-nodejs)
 
 ## 运行DEMO
 前后端分离,实际上是两个项目,服务端代码在server文件夹下
 
 ```
-    git clone https://github.com/bc-xuqi/beecloud-nodejs.git
+    git clone https://github.com/beecloud/beecloud-nodejs
     cd beecloud-nodejs
     npm install
     npm run dev
