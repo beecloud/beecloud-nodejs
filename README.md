@@ -1,4 +1,4 @@
-## BeeCloud NodeJs Demo (Open Source)
+## BeeCloud Node.JS SDK (Open Source)
 
 
 ## 简介
