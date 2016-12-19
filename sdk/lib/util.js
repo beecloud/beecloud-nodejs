@@ -1,3 +1,4 @@
+"use strict";
 const config = require('./config');
 const url = require('url');
 const https = require('https');
