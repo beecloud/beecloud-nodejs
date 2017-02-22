@@ -54,6 +54,7 @@ export default class Transfer extends PureComponent {
                 url: config.interfaceUrls.transfer,
                 data: data,
                 success: function (res) {
+                    location.href = res.url;
                 }
             })
         }

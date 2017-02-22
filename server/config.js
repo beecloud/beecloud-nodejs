@@ -1,7 +1,9 @@
 module.exports = {
-    APP_ID: 'e66e760b-0f78-44bb-a9ae-b22729d51678',
-    APP_SECRET: '6fb7db77-96ed-46ef-ae10-1118ee564dd3',
+    APP_ID: 'c5d1cba1-5e3f-4ba0-941d-9b0a371fe719',
+    //支付或者查询时使用
+    APP_SECRET: '39a7a518-9ac8-4a9e-87bc-7885f33cf18c',
+    //退款或者打款时使用
+    MASTER_SECRET: 'e14ae2db-608c-4f8b-b863-c8c18953eef2',
     //test_secret for sandbox
-    TEST_SECRET: 'a1900cf2-2570-49a3-bfb8-c6e7a1bc1e21',
-    MASTER_SECRET: '97ca13e4-6f40-4790-9734-ddcdc1da21db',
+    TEST_SECRET: '4bfdd244-574d-4bf3-b034-0c751ed34fee',
 }
