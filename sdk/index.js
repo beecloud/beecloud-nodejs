@@ -500,7 +500,7 @@ class BCRESTApi {
                 }
             }
             util.postman({
-                path: config.URI_BC_TRANSFER,
+                path: config.URI_TRANSFER,
                 type: 'post',
                 data: param,
                 neededData: neededData,
@@ -542,7 +542,7 @@ class BCRESTApi {
                 }
             }
             util.postman({
-                path: config.URI_BC_TRANSFER_BANKS,
+                path: config.URI_TRANSFERS,
                 type: 'get',
                 data: param,
                 neededData: neededData,
