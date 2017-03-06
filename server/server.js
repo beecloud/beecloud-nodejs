@@ -3,7 +3,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const BCRESTAPI = require('../sdk');
-// const BCRESTAPI = require('beecloud-node-sdk');
 const config = require('./config');
 
 
@@ -108,13 +107,13 @@ app.post('/api/checkoff',(req,res,next) => {//代扣
   })
 })
 
-app.post('/api/bcTransfer', (req, res, next) => { //退款总数
+app.post('/api/bcTransfer', (req, res, next) => { //BC企业打款
   API.bcTransfer(req.body).then((response) => {
     res.send(response);
   })
 })
 
-app.post('/api/transfer', (req, res, next) => { //退款总数
+app.post('/api/transfer', (req, res, next) => { //企业打款
   API.transfer(req.body).then((response) => {
     res.send(response);
   })

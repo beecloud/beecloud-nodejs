@@ -81,7 +81,7 @@ function postman(param) {
         if (checkResult.resultCode != 0) {
             resolve(checkResult);
         }
-        const urlStr = 'https://' + config.servers[Math.ceil(Math.random() * 3)] + param.path;
+        const urlStr = 'https://' + config.server + param.path;
         const resHandler = (res) => {
             resolve(res.text?JSON.parse(res.text):'');
         }

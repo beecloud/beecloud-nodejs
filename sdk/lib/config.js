@@ -7,6 +7,7 @@ module.exports = {
         'apiqd.beecloud.cn',//青岛
         'apihz.beecloud.cn'//杭州
     ],
+    server:'api.beecloud.cn',//暂时用这个地址
     URI_BILL: '/2/rest/bill', //支付,支付订单查询(指定id)
     URI_TEST_BILL: '/2/rest/sandbox/bill',
     URI_BILLS: '/2/rest/bills', //订单查询
